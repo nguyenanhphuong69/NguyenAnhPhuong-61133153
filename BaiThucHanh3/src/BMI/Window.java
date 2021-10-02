@@ -76,8 +76,9 @@ public class Window extends Frame {
 			
 			if (kq<16) 
 				lblAv.setText(av1);
-			else if (kq>=16 && kq <17)
-				lblAv.setText(av2);
+			else 
+				if (kq>=16 && kq <17)
+					lblAv.setText(av2);
 				else
 					if (kq>=17 && kq <18.5)
 						lblAv.setText(av3);
@@ -95,7 +96,7 @@ public class Window extends Frame {
 										lblAv.setText(av7);
 									else
 											lblAv.setText(av8);
-										
+									
 			lblKq.setText(temp);
 		}
 	}
