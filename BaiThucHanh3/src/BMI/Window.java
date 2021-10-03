@@ -57,7 +57,7 @@ public class Window extends Frame {
 			double a = Double.parseDouble(strCanNang);
 			double b = Double.parseDouble(strChieuCao);
 			
-			double kq = a/(b*2);
+			double kq = a/(b*b);
 			
 			String temp;
 			
