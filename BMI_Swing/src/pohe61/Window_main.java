@@ -48,22 +48,20 @@ public class Window_main {
 		frmChngTrnhTnh.getContentPane().setLayout(null);
 		
 		JLabel lblNhapCao = new JLabel("Nhập chiều cao (mét) : ");
-		lblNhapCao.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNhapCao.setBounds(45, 61, 139, 25);
 		frmChngTrnhTnh.getContentPane().add(lblNhapCao);
 		
 		txtCao = new JTextField();
-		txtCao.setBounds(194, 64, 132, 19);
+		txtCao.setBounds(187, 64, 139, 19);
 		frmChngTrnhTnh.getContentPane().add(txtCao);
 		txtCao.setColumns(10);
 		
 		JLabel lblNhapNang = new JLabel("Nhập cân nặng (kg) : ");
-		lblNhapNang.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNhapNang.setBounds(45, 96, 139, 25);
 		frmChngTrnhTnh.getContentPane().add(lblNhapNang);
 		
 		txtNang = new JTextField();
-		txtNang.setBounds(194, 99, 132, 19);
+		txtNang.setBounds(187, 99, 139, 19);
 		frmChngTrnhTnh.getContentPane().add(txtNang);
 		txtNang.setColumns(10);
 		
