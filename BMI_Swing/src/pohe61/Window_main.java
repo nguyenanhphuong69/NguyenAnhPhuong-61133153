@@ -48,7 +48,7 @@ public class Window_main {
 		frmChngTrnhTnh.getContentPane().setLayout(null);
 		
 		JLabel lblNhapCao = new JLabel("Nhập chiều cao (mét) : ");
-		lblNhapCao.setBounds(45, 61, 139, 25);
+		lblNhapCao.setBounds(46, 61, 139, 25);
 		frmChngTrnhTnh.getContentPane().add(lblNhapCao);
 		
 		txtCao = new JTextField();
