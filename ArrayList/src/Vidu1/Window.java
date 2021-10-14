@@ -6,6 +6,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Window.Type;
@@ -26,6 +27,7 @@ public class Window {
 	private JLabel lblTrangThai;
 	private JTextField txtHoVaTen;
 	JTextArea txtHienDanhSach;
+	private JTextField txtHoTenTK;
 
 
 	/**
@@ -77,7 +79,7 @@ public class Window {
 		frmChngTrnhNhp.getContentPane().add(lblHoVaTen);
 		
 		lblTrangThai = new JLabel("Mời bạn nhập");
-		lblTrangThai.setBounds(405, 79, 101, 13);
+		lblTrangThai.setBounds(401, 79, 101, 13);
 		frmChngTrnhNhp.getContentPane().add(lblTrangThai);
 		
 		JButton btnThem = new JButton("Thêm tên mới");
@@ -91,32 +93,65 @@ public class Window {
 		btnThem.setBounds(534, 36, 157, 32);
 		frmChngTrnhNhp.getContentPane().add(btnThem);
 		
-//		JButton btnHienDS = new JButton("Hiện danh sách");
-//		btnHienDS.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				hienDanhSach(dsTen);
-//			}
-//		});
+		JButton btnTimKiem = new JButton("Tìm kiếm");
+		btnTimKiem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String hotentk = txtHoTenTK.getText();
+				JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+				String temp = "Bạn chưa nhập bất cứ tên nào";
+				int listLength = dsTen.size();
+				
+				txtHoTenTK.setText("");
+				
+				for (int i = 0; i < listLength; i++) 
+					if (dsTen.get(i).contains(hotentk))
+					{ 
+						temp = "Tìm thấy tên ở vị trí thứ " + String.valueOf(i+1) + " trong danh sách !";
+						break;
+					}
+					else 
+						temp = "Không tìm thấy tên bạn muốn trong danh sách";
+				
+		        JOptionPane.showMessageDialog(frame,
+		                temp,
+		                "Kết quả tìm kiếm",
+		                JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		
-//		btnHienDS.setFont(new Font("Tahoma", Font.PLAIN, 14));
-//		btnHienDS.setBounds(320, 107, 134, 32);
-//		frmChngTrnhNhp.getContentPane().add(btnHienDS);
+		btnTimKiem.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnTimKiem.setBounds(534, 97, 157, 32);
+		frmChngTrnhNhp.getContentPane().add(btnTimKiem);
 		
 		txtHienDanhSach = new JTextArea();
 		txtHienDanhSach.setEditable(false);
-		txtHienDanhSach.setBounds(184, 145, 414, 258);
+		txtHienDanhSach.setBounds(184, 162, 414, 241);
 		frmChngTrnhNhp.getContentPane().add(txtHienDanhSach);
 		
-		JButton btnNewButton = new JButton("Xóa tên vừa thêm");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnXoaTen = new JButton("Xóa tên vừa thêm");
+		btnXoaTen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dsTen.remove(dsTen.size()-1);
 				hienThiDanhSach(dsTen);
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(534, 91, 157, 32);
-		frmChngTrnhNhp.getContentPane().add(btnNewButton);
+		btnXoaTen.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnXoaTen.setBounds(608, 162, 157, 38);
+		frmChngTrnhNhp.getContentPane().add(btnXoaTen);
+		
+		JLabel lblHoTenTK = new JLabel("Nhập họ tên muốn tìm kiếm:");
+		lblHoTenTK.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHoTenTK.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblHoTenTK.setBounds(71, 100, 196, 27);
+		frmChngTrnhNhp.getContentPane().add(lblHoTenTK);
+		
+		txtHoTenTK = new JTextField();
+		txtHoTenTK.setBounds(277, 97, 225, 32);
+		frmChngTrnhNhp.getContentPane().add(txtHoTenTK);
+		txtHoTenTK.setColumns(10);
+		
+		
+		
 		
 	}
 	
