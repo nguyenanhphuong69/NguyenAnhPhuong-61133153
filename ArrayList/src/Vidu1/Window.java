@@ -104,9 +104,9 @@ public class Window {
 				txtHoTenTK.setText("");
 				
 				for (int i = 0; i < listLength; i++) 
-					if (dsTen.get(i).contains(hotentk))
+					if (dsTen.get(i).equals(hotentk))
 					{ 
-						temp = "Tìm thấy tên ở vị trí thứ " + String.valueOf(i+1) + " trong danh sách !";
+						if (hotentk!="") temp = "Tìm thấy tên ở vị trí thứ " + String.valueOf(i+1) + " trong danh sách !";
 						break;
 					}
 					else 
@@ -149,9 +149,6 @@ public class Window {
 		txtHoTenTK.setBounds(277, 97, 225, 32);
 		frmChngTrnhNhp.getContentPane().add(txtHoTenTK);
 		txtHoTenTK.setColumns(10);
-		
-		
-		
 		
 	}
 	
