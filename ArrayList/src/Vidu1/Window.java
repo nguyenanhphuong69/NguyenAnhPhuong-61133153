@@ -65,6 +65,10 @@ public class Window {
 			public void focusGained(FocusEvent e) {
 				lblTrangThai.setText("Mời bạn nhập ...");
 			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				lblTrangThai.setText("");
+			}
 		});
 
 		txtHoVaTen.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -78,8 +82,8 @@ public class Window {
 		lblHoVaTen.setBounds(71, 36, 196, 32);
 		frmChngTrnhNhp.getContentPane().add(lblHoVaTen);
 		
-		lblTrangThai = new JLabel("Mời bạn nhập");
-		lblTrangThai.setBounds(401, 79, 101, 13);
+		lblTrangThai = new JLabel(" ");
+		lblTrangThai.setBounds(385, 79, 117, 13);
 		frmChngTrnhNhp.getContentPane().add(lblTrangThai);
 		
 		JButton btnThem = new JButton("Thêm tên mới");
@@ -93,9 +97,14 @@ public class Window {
 		btnThem.setBounds(534, 36, 157, 32);
 		frmChngTrnhNhp.getContentPane().add(btnThem);
 		
+		JLabel lblTrangThai1 = new JLabel(" ");
+		lblTrangThai1.setBounds(385, 127, 118, 27);
+		frmChngTrnhNhp.getContentPane().add(lblTrangThai1);
+		
 		JButton btnTimKiem = new JButton("Tìm kiếm");
 		btnTimKiem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblTrangThai1.setText("Đã tìm xong!");
 				String hotentk = txtHoTenTK.getText();
 				JFrame frame = new JFrame("JOptionPane showMessageDialog example");
 				String temp = "Bạn chưa nhập bất cứ tên nào";
@@ -146,6 +155,16 @@ public class Window {
 		frmChngTrnhNhp.getContentPane().add(lblHoTenTK);
 		
 		txtHoTenTK = new JTextField();
+		txtHoTenTK.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblTrangThai1.setText("Mời bạn nhập ...");
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				lblTrangThai1.setText("");
+			}
+		});
 		txtHoTenTK.setBounds(277, 97, 225, 32);
 		frmChngTrnhNhp.getContentPane().add(txtHoTenTK);
 		txtHoTenTK.setColumns(10);
@@ -156,7 +175,7 @@ public class Window {
 		String hoten = txtHoVaTen.getText();
 		a.add(hoten);
 		txtHoVaTen.setText("");
-		lblTrangThai.setText("Thêm thành công");
+		lblTrangThai.setText("Thêm thành công!");
 		
 		txtHienDanhSach.setText("");
 		for (int index = 0; index <a.size();index++) {
