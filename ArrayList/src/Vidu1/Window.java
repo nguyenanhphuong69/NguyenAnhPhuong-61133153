@@ -21,13 +21,14 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 public class Window {
+	
 	ArrayList<String> dsTen = new ArrayList<String>(0);
 
 	private JFrame frmChngTrnhNhp;
 	private JLabel lblTrangThai;
 	private JTextField txtHoVaTen;
-	JTextArea txtHienDanhSach;
 	private JTextField txtHoTenTK;
+	JTextArea txtHienDanhSach;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -47,6 +48,7 @@ public class Window {
 	}
 
 	private void initialize() {
+		
 		frmChngTrnhNhp = new JFrame();
 		frmChngTrnhNhp.setForeground(Color.LIGHT_GRAY);
 		frmChngTrnhNhp.setFont(new Font("Dialog", Font.PLAIN, 14));
@@ -100,10 +102,11 @@ public class Window {
 		JButton btnTimKiem = new JButton("Tìm kiếm");
 		btnTimKiem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				lblTrangThai1.setText("Đã tìm xong!");
 				String hotentk = txtHoTenTK.getText();
 				JFrame frame = new JFrame("JOptionPane showMessageDialog example");
-				String temp = "Bạn chưa nhập bất cứ tên nào";
+				String temp = "Không tìm thấy tên bạn muốn trong danh sách";
 				int listLength = dsTen.size();
 				
 				txtHoTenTK.setText("");
@@ -111,10 +114,10 @@ public class Window {
 				for (int i = 0; i < listLength; i++) 
 					if (dsTen.get(i).equals(hotentk))
 					{ 
-						if (hotentk!="") temp = "Tìm thấy tên ở vị trí thứ " + String.valueOf(i+1) + " trong danh sách !";
+						temp = "Tìm thấy tên ở vị trí thứ " + String.valueOf(i+1) + " trong danh sách !";
 						break;
 					}
-					else 
+					else
 						temp = "Không tìm thấy tên bạn muốn trong danh sách";
 				
 		        JOptionPane.showMessageDialog(frame,
@@ -161,6 +164,7 @@ public class Window {
 				lblTrangThai1.setText("");
 			}
 		});
+		
 		txtHoTenTK.setBounds(277, 97, 225, 32);
 		frmChngTrnhNhp.getContentPane().add(txtHoTenTK);
 		txtHoTenTK.setColumns(10);
@@ -179,10 +183,13 @@ public class Window {
 		}
 
 	}
+	
 	void hienThiDanhSach(ArrayList<String> a) {
 		txtHienDanhSach.setText("");
 		for (int index = 0; index <a.size();index++) {
 			txtHienDanhSach.append("\n" + a.get(index));
 		}
+		
 	}
+	
 }
