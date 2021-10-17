@@ -116,9 +116,7 @@ public class Window {
 					{ 
 						temp = "Tìm thấy tên ở vị trí thứ " + String.valueOf(i+1) + " trong danh sách !";
 						break;
-					}
-					else
-						temp = "Không tìm thấy tên bạn muốn trong danh sách";
+					};
 				
 		        JOptionPane.showMessageDialog(frame,
 		                temp,
